@@ -1,18 +1,14 @@
 package raja.be.ModelLayer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue
     private String login;
     private String passwordhash;
     private boolean active;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Person person;
 
     public String getLogin() {

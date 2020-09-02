@@ -14,7 +14,8 @@ public class Crud {
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.getTransaction().commit();
-        System.out.println("data is committed");
+        entityManager.close();
+        entityManagerFactory.close();
 
 
     }

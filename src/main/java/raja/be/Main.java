@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        User raj = new User();
+        User user = new User();
         Crud crud = new Crud();
         Course crs = new Course();
         Module mod = new  Module();
@@ -46,17 +46,11 @@ public class Main {
 
 
 
-      raj.setLogin("number1");
-      raj.setPasswordhash("112");
-      raj.setActive(true);
-      raj.setPerson(pers);
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("datasource");
-
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(raj);
-        entityManager.getTransaction().commit();
-        System.out.println("data is committed");
+     user.setLogin("number1");
+      user.setPasswordhash("112");
+      user.setActive(true);
+      user.setPerson(pers);
+      crud.createUser(user);
 
 
 
