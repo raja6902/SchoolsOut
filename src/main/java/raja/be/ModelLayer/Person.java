@@ -63,7 +63,7 @@ public class Person {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
-                ", course=" + course +
+
                 '}';
     }
 }

@@ -13,7 +13,7 @@ private String name;
 private String description;
 @ManyToOne
 private Course course;
-@OneToMany(mappedBy = "module")
+@OneToMany(mappedBy = "module", cascade = CascadeType.PERSIST)
 private List<Exam> exams;
 
     public Long getId() {

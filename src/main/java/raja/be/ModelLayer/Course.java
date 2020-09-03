@@ -15,6 +15,16 @@ public class Course {
     private boolean active;
     @OneToMany(mappedBy = "course",cascade = CascadeType.PERSIST)
     private List<Module> modules;
+    @OneToMany(mappedBy = "course", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<Person> people;
+
+    public List<Person> getPeople() {
+        return people;
+    }
+
+    public void setPeople(List<Person> people) {
+        this.people = people;
+    }
 
     public Long getId() {
         return id;
@@ -82,6 +92,7 @@ public class Course {
                 ", imageURL='" + imageURL + '\'' +
                 ", active=" + active +
                 ", modules=" + modules +
+                "Person ="  + people +
                 '}';
     }
 }
