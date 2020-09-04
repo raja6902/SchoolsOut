@@ -66,9 +66,7 @@ public class Main {
 //       user.forEach(System.out::println);
 
        PersonData psd = new PersonData();
-      List<Person> person = psd.findAllPerson();
-      person.forEach(System.out::println);
-
+     psd.deletePerson(19);
 
 
      //   Course crs = em.find(Course.class, 5L);

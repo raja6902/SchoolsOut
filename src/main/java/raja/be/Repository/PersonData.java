@@ -7,9 +7,8 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class PersonData {
-    EmWorker emw = new EmWorker();
-    EntityManager em = emw.createem();
-
+    EmWorker emf = new EmWorker();
+    EntityManager em = emf.createem();
 
     public void deletePerson(Integer id) {
 
@@ -20,7 +19,7 @@ public class PersonData {
             em.getTransaction().commit();
             System.out.println(person + "  this person's details been removed");
             em.close();
-            emw.getEmf().close();
+
         }
 
     }
@@ -35,7 +34,7 @@ public class PersonData {
         em.merge(person);
         em.getTransaction().commit();
         em.close();
-        emw.getEmf().close();
+
 
     }
 
@@ -44,7 +43,6 @@ public class PersonData {
         if (person != null) {
             System.out.println(person.toString());
             em.close();
-            emw.getEmf().close();
 
         }
     }

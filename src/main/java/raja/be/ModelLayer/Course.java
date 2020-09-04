@@ -2,6 +2,7 @@ package raja.be.ModelLayer;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
 public class Course {
     @Id
@@ -13,18 +14,11 @@ public class Course {
     private String code;
     private String imageURL;
     private boolean active;
-    @OneToMany(mappedBy = "course",cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy="course")
     private List<Module> modules;
-    @OneToMany(mappedBy = "course", orphanRemoval = true, cascade = CascadeType.PERSIST)
-    private List<Person> people;
 
-    public List<Person> getPeople() {
-        return people;
-    }
 
-    public void setPeople(List<Person> people) {
-        this.people = people;
-    }
+
 
     public Long getId() {
         return id;
@@ -92,7 +86,7 @@ public class Course {
                 ", imageURL='" + imageURL + '\'' +
                 ", active=" + active +
                 ", modules=" + modules +
-                "Person ="  + people +
+
                 '}';
     }
 }

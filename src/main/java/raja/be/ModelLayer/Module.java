@@ -11,9 +11,9 @@ private  Long id;
 private String name;
 @Lob
 private String description;
-@ManyToOne
+@ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE},targetEntity = Course.class)
 private Course course;
-@OneToMany(mappedBy = "module", cascade = CascadeType.PERSIST)
+@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy="module")
 private List<Exam> exams;
 
     public Long getId() {

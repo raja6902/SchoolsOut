@@ -11,7 +11,7 @@ public class Person {
     private String lastName;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     private Course course;
 
 

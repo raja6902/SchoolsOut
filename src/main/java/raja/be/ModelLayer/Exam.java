@@ -13,7 +13,7 @@ public class Exam {
     private LocalDate Date;
     private int weight;
     private int total;
-    @ManyToOne
+    @ManyToOne(targetEntity = Module.class,cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE})
     private Module module;
 
     public Long getId() {
