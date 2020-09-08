@@ -63,9 +63,6 @@ public class GradeData {
     }
 
 
-
-
-
     public List<Grade>  gradebyExamid(Long id){
         TypedQuery<Grade> query = em.createQuery("SELECT g FROM Grade g WHERE g.exam.id = ? 1", Grade.class)
                 .setParameter(1,id);

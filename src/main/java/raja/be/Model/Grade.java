@@ -9,6 +9,7 @@ public class Grade {
     @GeneratedValue
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @Transient
     private Person person;
     @ManyToOne(cascade = CascadeType.MERGE)
     private Exam exam;

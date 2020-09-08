@@ -1,8 +1,6 @@
 package raja.be.Repository;
 
 import raja.be.Model.Exam;
-import raja.be.Model.Grade;
-
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.time.LocalDate;
