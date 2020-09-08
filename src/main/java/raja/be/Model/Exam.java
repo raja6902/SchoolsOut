@@ -1,9 +1,12 @@
-package raja.be.ModelLayer;
+package raja.be.Model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-public class Exam {
+public class Exam<subExams> {
     @Id
     @GeneratedValue
     private Long id;
@@ -15,6 +18,30 @@ public class Exam {
     private int total;
     @ManyToOne(targetEntity = Module.class,cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE})
     private Module module;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Exam examGroup;
+    @OneToMany(mappedBy = "examGroup", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private List<Exam> subExams = new ArrayList<>();
+
+
+    public List<Exam> getSubExams() {
+        return subExams;
+    }
+
+    public void setSubExams(List<Exam> subExams) {
+        this.subExams = subExams;
+    }
+
+
+    public Exam getExamGroup() {
+        return examGroup;
+    }
+
+    public void setExamGroup(Exam examGroup) {
+        this.examGroup = examGroup;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -28,8 +55,9 @@ public class Exam {
         return name;
     }
 
-    public void setName(String name) {
+    public Exam setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getDescription() {
@@ -44,8 +72,9 @@ public class Exam {
         return Date;
     }
 
-    public void setDate(LocalDate date) {
+    public Exam setDate(LocalDate date) {
         Date = date;
+        return this;
     }
 
     public int getWeight() {

@@ -1,4 +1,4 @@
-package raja.be.ModelLayer;
+package raja.be.Model;
 
 import javax.persistence.*;
 

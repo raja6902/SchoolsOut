@@ -1,6 +1,6 @@
 package raja.be.Repository;
 
-import raja.be.ModelLayer.Course;
+import raja.be.Model.Course;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

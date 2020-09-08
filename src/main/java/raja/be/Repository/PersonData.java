@@ -1,7 +1,7 @@
 package raja.be.Repository;
 
-import raja.be.ModelLayer.Gender;
-import raja.be.ModelLayer.Person;
+import raja.be.Model.Gender;
+import raja.be.Model.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;

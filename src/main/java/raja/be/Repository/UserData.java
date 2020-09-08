@@ -1,6 +1,6 @@
 package raja.be.Repository;
 
-import raja.be.ModelLayer.User;
+import raja.be.Model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -18,6 +18,7 @@ public class UserData {
         em.getTransaction().commit();
         em.close();
         emWorker.getEmf().close();
+
 
 
     }

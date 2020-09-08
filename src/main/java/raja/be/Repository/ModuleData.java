@@ -1,7 +1,7 @@
 package raja.be.Repository;
 
 
-import raja.be.ModelLayer.Module;
+import raja.be.Model.Module;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
