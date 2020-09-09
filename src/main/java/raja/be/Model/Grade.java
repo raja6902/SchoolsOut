@@ -9,7 +9,6 @@ public class Grade {
     @GeneratedValue
     private Long id;
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @Transient
     private Person person;
     @ManyToOne(cascade = CascadeType.MERGE)
     private Exam exam;
@@ -100,7 +99,6 @@ public class Grade {
     public String toString() {
         return "Grade{" +
                 "id=" + id +
-                 ", person=" + person +
                 ", exam=" + exam +
                 ", gradeValue=" + gradeValue +
                 ", comment='" + comment + '\'' +
