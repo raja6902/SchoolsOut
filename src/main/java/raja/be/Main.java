@@ -10,7 +10,7 @@ public class Main {
 
 
       ExamService exs = new ExamService();
-        exs.outputExam(54l);
+        exs.outputExam(75L);
 
     }
 }
