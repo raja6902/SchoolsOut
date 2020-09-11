@@ -18,9 +18,9 @@ public class Exam<subExams> {
     private int total;
     @ManyToOne(targetEntity = Module.class,cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE})
     private Module module;
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private Exam examGroup;
-    @OneToMany(mappedBy = "examGroup", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "examGroup", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     private List<Exam> subExams = new ArrayList<>();
 
 
@@ -47,8 +47,9 @@ public class Exam<subExams> {
         return id;
     }
 
-    public void setId(Long id) {
+    public Exam setId(Long id) {
         this.id = id;
+        return null;
     }
 
     public String getName() {

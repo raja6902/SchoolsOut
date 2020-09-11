@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExamData {
-     EmWorker emw = new EmWorker();
-     EntityManager em = emw.createem();
+    EmWorker emw = new EmWorker();
+    EntityManager em = emw.createem();
 
     public void createExam(Exam exam) {
 
@@ -54,11 +54,14 @@ public class ExamData {
         Exam exam = em.find(Exam.class, id);
         if (exam != null) {
             System.out.println(exam.toString());
-            em.close();
-            emw.getEmf().close();
+
+
         }
         return exam;
+
     }
+
+
 
     public void addSubExam(Exam  exam, Exam subExam){
         em.getTransaction().begin();
@@ -70,10 +73,13 @@ public class ExamData {
         }else{
             em.merge(exam);
             em.merge(subExam);
+
         }
+
         em.getTransaction().commit();
+        em.close();
         }
-    public List<Exam>  getSubExamByid(Long id){
+    public List<Exam>  getSubExamById(Long id){
         TypedQuery<Exam> query = em.createQuery("SELECT e FROM Exam e WHERE e.examGroup.id = ? 1", Exam.class)
                 .setParameter(1,id);
         return  query.getResultList();

@@ -1,5 +1,6 @@
 package raja.be.Repository;
 
+import raja.be.Model.Exam;
 import raja.be.Model.Grade;
 
 import javax.persistence.EntityManager;
@@ -63,7 +64,7 @@ public class GradeData {
     }
 
 
-    public List<Grade>  gradebyExamid(Long id){
+    public List<Grade>  gradeByExamId(Long id){
         TypedQuery<Grade> query = em.createQuery("SELECT g FROM Grade g WHERE g.exam.id = ? 1", Grade.class)
                 .setParameter(1,id);
                return  query.getResultList();
@@ -74,6 +75,19 @@ public class GradeData {
         return query.getResultList();
 
 
+    }
+
+    public void addGradeByExamId(Grade grade) {
+        Exam exam = new Exam();
+        em.getTransaction().begin();
+
+        if (exam.getId() != null) {
+            em.merge(grade);
+
+        }
+        em.persist(grade);
+        em.getTransaction().commit();
+        em.close();
     }
 
 }
